@@ -1,0 +1,15 @@
+services:
+  simple-bot:
+    image: python:3.11-slim
+    working_dir: /app
+    environment:
+      TELEGRAM_BOT_TOKEN: 7961338599:AAEGSHwGMycf8oRSwFd5ZvW-3u72MDW4aHE
+      ADMIN_ID: 279005522
+    volumes:
+      - .:/app
+    command: >
+      sh -c "
+      pip install python-telegram-bot &&
+      python simple_bot.py
+      "
+    restart: unless-stopped
